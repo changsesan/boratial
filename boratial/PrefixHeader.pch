@@ -1,0 +1,58 @@
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+// debug
+#ifdef DEBUG
+# define DLog(fmt, ...) NSLog((@"%s(%d) " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+# define DLog(...)
+#endif
+
+// os version, device type
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
+
+
+
+
+ //   #define kUrlMain                    @"http://www.myiut7925.com/index.asp"
+
+#define kUrlMain                    @"http://bora.dosoft.kr/"
+
+
+
+#define IMG_UPLOAD_URL @"http://www.myiut7925.com/include/image_upload.asp"
+
+// 심사시 아이핀등을 감추려고 하니 사이트 접속 주소
+//#define kTokenUploadUrl                 @"/app/token_ios.php"
+//#define kIsAppUrl                       @"/?isapp=1&isios=3"
+
+
+#define ID_APPSTORE                     @"1360178901"   // 동아오츠카 보라티알로 변경해줘야한다
+
+
+//#define SHOW_UPDATE_ALERT               TRUE
+
+
